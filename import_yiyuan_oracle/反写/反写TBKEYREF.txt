@@ -1,0 +1,9 @@
+select fwbh,syqzh  from fwzk  where recid>=(select min(recid) from v_keycoderecid_yy)  group by fwbh ,syqzh having count(1)>1;
+
+DELETE FROM tbkeyref A  WHERE a.recid>=(select min(recid) from v_keycoderecid_yy);
+ 
+insert into tbkeyref
+select  a.uuid,a.recid,b.uuid,b.recid  from  fwmx a ,fwzk b where a.fwbh=b.fwbh and a.syqzh=b.syqzh and a.recid>=(select min(recid) from v_keycoderecid_yy);
+
+insert into tbkeyref
+select  a.uuid,a.recid,b.uuid,b.recid  from  lpfwmx a ,tbroom b where a.fwbh=b.fwbh  and a.recid>=(select min(recid) from v_keycoderecid_yy);

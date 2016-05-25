@@ -1,0 +1,12 @@
+1、eistran_yy、eisdoc_yy、eisweb_yy、eisfiles_yy 从SQLServer 转到Oracle库。
+2、备份正式库导入34。
+3、导入tbhengtongcaoben.dmp。（在合同拆分文件夹）
+4、创建索引，优化执行效率。（在优化加索引文件夹）
+5、执行 最先执行且只执行一次.sql
+6、PLSQL打开命令窗口，执行update_all.sql。
+7、执行反写
+
+反写FWZK.txt
+反写TBKEYREF.txt
+反写TBRELINST.txt
+反写XMXX.txt

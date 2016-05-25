@@ -1,0 +1,8 @@
+create table TBHETONGCAOBEN
+(
+  t_no    INTEGER,
+  t_name  VARCHAR2(100),
+  t_value CLOB
+)
+;
+

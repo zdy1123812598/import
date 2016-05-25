@@ -1,0 +1,9 @@
+create table TBLOG_RELINST_YY
+(
+  reldefid     INTEGER,
+  srcrecid     INTEGER,
+  dstrecid     INTEGER,
+  lastmodified DATE
+)
+;
+

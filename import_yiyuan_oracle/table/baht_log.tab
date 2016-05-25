@@ -1,0 +1,21 @@
+create table BAHT_LOG
+(
+  recid    INTEGER,
+  keycode  VARCHAR2(200),
+  msg      VARCHAR2(1000),
+  type_id  INTEGER,
+  isgd     INTEGER,
+  t_user   VARCHAR2(100),
+  bs       INTEGER,
+  isgyrsj  INTEGER,
+  ifczrysj INTEGER,
+  istbroom VARCHAR2(100)
+)
+;
+comment on column BAHT_LOG.isgyrsj
+  is '共有人是否存在问题：比如名字错误';
+comment on column BAHT_LOG.ifczrysj
+  is '是否才在人员数据';
+comment on column BAHT_LOG.istbroom
+  is 'tbroom中是否存在查询人员';
+

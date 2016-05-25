@@ -1,0 +1,15 @@
+create table KFQY_LOG
+(
+  recid   INTEGER,
+  keycode VARCHAR2(200),
+  msg     VARCHAR2(1000),
+  type_id INTEGER,
+  isgd    INTEGER,
+  t_user  VARCHAR2(100),
+  sjyy    VARCHAR2(100),
+  tag     INTEGER,
+  sffwxx  INTEGER
+)
+;
+
+

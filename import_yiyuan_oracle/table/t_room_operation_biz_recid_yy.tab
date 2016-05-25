@@ -1,0 +1,2 @@
+create table t_room_operation_biz_recid_yy as 
+select a.*,b.recid from t_room_operation_biz_yy a,t_keycoderecid_yy b where a.keycode=b.keycode and b.recid is not null order by acc_date;

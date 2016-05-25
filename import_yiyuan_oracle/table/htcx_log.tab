@@ -1,0 +1,18 @@
+create table HTCX_LOG
+(
+  recid    INTEGER,
+  keycode  VARCHAR2(200),
+  msg      VARCHAR2(1000),
+  type_id  INTEGER,
+  isgd     INTEGER,
+  lx       VARCHAR2(100),
+  t_user   VARCHAR2(100),
+  isgx     INTEGER,
+  issrecid VARCHAR2(100)
+)
+;
+comment on column HTCX_LOG.isgx
+  is '是否更新';
+comment on column HTCX_LOG.issrecid
+  is '是否有上手信息';
+

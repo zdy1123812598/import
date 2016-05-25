@@ -1,0 +1,25 @@
+create table ZXXX_LOG
+(
+  recid    INTEGER,
+  keycode  VARCHAR2(200),
+  msg      VARCHAR2(1000),
+  type_id  INTEGER,
+  isgd     INTEGER,
+  sjyy     VARCHAR2(100),
+  t_user   VARCHAR2(100),
+  isgx     INTEGER,
+  cqzhsfdt INTEGER,
+  ssfw     INTEGER,
+  isfw     INTEGER,
+  sffwxx   INTEGER
+)
+;
+comment on column ZXXX_LOG.isgx
+  is '是否更新';
+comment on column ZXXX_LOG.cqzhsfdt
+  is '产权证号是否多条:大于1为1，等于0为2';
+comment on column ZXXX_LOG.ssfw
+  is '是否存在上手房屋，等于0为1，大于1为2';
+comment on column ZXXX_LOG.isfw
+  is 'tbroom中是否存在房屋数据';
+

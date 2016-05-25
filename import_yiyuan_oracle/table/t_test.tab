@@ -1,0 +1,6 @@
+create table T_TEST
+(
+  keycode VARCHAR2(200)
+)
+;
+

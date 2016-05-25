@@ -1,0 +1,29 @@
+delete from tbrelinst where srcrecid>=(select min(recid) from v_keycoderecid_yy);
+
+insert into tbrelinst(srcrecid,dstrecid)
+select distinct srcrecid,dstrecid from(
+--产权
+select bb.recid srcrecid,aa.recid dstrecid
+ from 
+(select a.* ,b.fwbh from cqxx a  ,fwzk b where a.recid=b.recid and a.cqzh is not null and a.recid >=(select min(recid) from 
+
+v_keycoderecid_yy)) aa ,
+(select  a.* ,b.fwbh  from cqxx a  ,fwzk b where a.recid=b.recid  and a.cqzh is not null and a.recid >=(select min(recid) 
+
+from v_keycoderecid_yy)) bb
+where  aa.sscqzh=bb.cqzh and aa.fwbh=bb.fwbh
+union 
+--抵押,有证查封
+select a.recid srcrecid,b.recid dstrecid  from cqxx a ,fwmx b where a.cqzh=b.syqzh  
+and a.cqzh is not null and b.recid in (select recid from tbrec where subbizid in(2505,2646,2698)) and a.recid >=(select min(recid)
+from v_keycoderecid_yy)
+
+union
+--抵押注销
+select a.recid srcrecid, b.recid dstrecid
+  from dyxx a, v_keycoderecid_yy b
+ where to_char(a.zxyy) = b.keycode and
+ a.recid in (select recid from tbrec where subbizid in (2710, 2711))
+   and a.zxyy is not null
+
+);

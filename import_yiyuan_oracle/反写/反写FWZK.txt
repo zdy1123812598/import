@@ -1,0 +1,51 @@
+update fwzk a set a.syqzh = (select b.cqzh from cqxx b where a.recid=b.recid) where a.recid >= (select min(recid) from v_keycoderecid_yy);
+
+update fwzk a set a.status = (select decode(b.state,0,1,2) from eisdoc_yy.owner b where b.roomcode=a.fwbh and b.ocertno = a.syqzh) where a.recid >= (select min(recid) from v_keycoderecid_yy) AND EXISTS (SELECT 1 FROM  eisdoc_yy.owner b1 where b1.roomcode=a.fwbh and b1.ocertno = a.syqzh);
+
+
+update fwzk a set a.status =0  where a.recid >= (select min(recid) from v_keycoderecid_yy)  AND A.SYQZH IS NULL;
+
+
+--反写总层数和房屋结构
+create table t_room_yy as 
+select distinct floorall, frame, roomcode
+  from (select b.floorall, b.frame, a.roomcode
+          from eisdoc_yy.Room a, eisdoc_yy.PRESELL_BUILD b
+         where a.land_no = b.land_no
+           and a.build_no = b.build_no
+        union
+        select d.floorall, d.frame, c.roomcode
+          from eisdoc_yy.Room c, eisdoc_yy.build d
+         where c.land_no = d.land_no
+           and c.build_no = d.build_no
+        union
+        select b.floorall, b.frame, a.roomcode
+          from eistran_yy.Room a, eistran_yy.PRESELL_BUILD b
+         where a.land_no = b.land_no
+           and a.build_no = b.build_no);
+   
+commit;
+create index I_ROOMY_ROOMCODE on T_ROOM_YY (ROOMCODE)
+  tablespace ISYS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+commit; 
+
+update fwzk f
+   set (zcs, fwjg) =
+       (select r.floorall, r.frame
+          from t_room_yy r
+         where r.roomcode = f.fwbh
+           and rownum = 1)
+ where recid >= (select min(recid) from t_keycoderecid_yy);
+ commit;
+drop table t_room_yy;
+commit;

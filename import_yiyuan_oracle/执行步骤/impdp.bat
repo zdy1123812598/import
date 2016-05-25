@@ -1,0 +1,1 @@
+impdp isys0925/isys0925@127.0.0.1/cdgis dumpfile=am_isys20150620.dmp logfile=am_isys20150620_20150924.log schemas=isys Remap_schema=isys:isys0925 transform=OID:N

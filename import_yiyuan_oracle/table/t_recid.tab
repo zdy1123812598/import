@@ -1,0 +1,9 @@
+create table T_RECID
+(
+  recid   INTEGER,
+  keycode VARCHAR2(200),
+  ssyw    VARCHAR2(300),
+  cqzh    VARCHAR2(200)
+)
+;
+

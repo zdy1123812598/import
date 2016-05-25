@@ -1,0 +1,1 @@
+impdp isys0925/isys0925@127.0.0.1/cdgis directory=DATA_PUMP_DIR dumpfile=TBHETONGCAOBENISYS0927.DMP logfile=TBHETONGCAOBEN20150917-IMP.log remap_schema=isys:isys0925 table_exists_action=replace remap_tablespace=isys:isys PARALLEL =4 transform=OID:N

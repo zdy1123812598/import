@@ -1,0 +1,6 @@
+--1---²úÈ¨
+select distinct keycode,ocertno from eisdoc_yy.owner t where  not exists (select 1 from cqxx a where t.keycode=a.slbh and t.ocertno=a.cqzh )
+--2---µÖÑº
+select  b.serclass,b.sertype,count(1)  from eisdoc_yy.operation a,eistran_yy.service b where  a.type_id=b.sercode and  keycode 
+in  (select distinct a.keycode    from   eisdoc_yy.mortagage  a  where  not exists (select 1   from dyxx  b   where a.keycode=b.slbh))
+group by b.serclass,b.sertype ;

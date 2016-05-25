@@ -1,0 +1,1 @@
+impdp zbfg/zbfg@127.0.0.1/orcl directory=dump_dir dumpfile=TBHETONGCAOBENISYS0927.DMP logfile=tbhetongcaoben-imp.log remap_schema=isys5:zbfg table_exists_action=replace remap_tablespace=isys5:zbfg PARALLEL =4 transform=OID:N

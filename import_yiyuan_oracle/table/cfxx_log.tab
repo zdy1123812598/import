@@ -1,0 +1,31 @@
+create table CFXX_LOG
+(
+  recid   INTEGER,
+  keycode VARCHAR2(200),
+  msg     VARCHAR2(1000),
+  type_id INTEGER,
+  isgd    INTEGER,
+  lx      VARCHAR2(100),
+  t_user  VARCHAR2(100),
+  sjyy    VARCHAR2(100),
+  tag     INTEGER,
+  isgx    INTEGER,
+  ssfw    INTEGER,
+  isfw    INTEGER,
+  sscqzh  INTEGER,
+  cqzhdg  INTEGER,
+  sscfsj  INTEGER,
+  sffwxx  INTEGER
+)
+;
+comment on column CFXX_LOG.isgx
+  is '是否更新';
+comment on column CFXX_LOG.ssfw
+  is '是否存在上手房屋，等于0为1，大于1为2';
+comment on column CFXX_LOG.isfw
+  is 'tbroom中是否存在房屋数据';
+comment on column CFXX_LOG.sscqzh
+  is '未找到上手产权证号为1,大于1条为2';
+comment on column CFXX_LOG.sscfsj
+  is '上手查封数据';
+

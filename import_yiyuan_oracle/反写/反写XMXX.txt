@@ -1,0 +1,1 @@
+update xmxx a set a.status = 1 where a.recid>=(select min(recid) from v_keycoderecid_yy);

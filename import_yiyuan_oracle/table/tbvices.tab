@@ -1,0 +1,11 @@
+create table TBVICES
+(
+  id        VARCHAR2(32) not null,
+  status    INTEGER not null,
+  docid     INTEGER not null,
+  keycode   VARCHAR2(20) not null,
+  filename  VARCHAR2(150) not null,
+  disporder INTEGER not null
+)
+;
+

@@ -1,0 +1,1 @@
+expdp isys/isys@127.0.0.1/cdgis dumpfile=tbhetongcaoben20150917.dmp logfile=tab20150917.log tables=tbhetongcaoben

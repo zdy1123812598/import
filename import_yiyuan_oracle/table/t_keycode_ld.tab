@@ -1,0 +1,8 @@
+create table T_KEYCODE_LD
+(
+  keycode VARCHAR2(200),
+  t_user  VARCHAR2(100),
+  typeid  INTEGER
+)
+;
+

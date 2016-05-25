@@ -1,0 +1,7 @@
+create table TBLOG_UPDATEROOMSTATE_YY
+(
+  roomcode INTEGER,
+  msg      VARCHAR2(1000)
+)
+;
+

@@ -1,0 +1,9 @@
+create table TBLOG_KEYREF_YY
+(
+  uuid     CHAR(32),
+  recid    INTEGER,
+  refuuid  CHAR(32),
+  refrecid INTEGER
+)
+;
+

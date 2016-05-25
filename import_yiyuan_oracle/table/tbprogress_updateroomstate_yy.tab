@@ -1,0 +1,6 @@
+create table TBPROGRESS_UPDATEROOMSTATE_YY
+(
+  msg VARCHAR2(2000)
+)
+;
+
